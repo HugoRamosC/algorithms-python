@@ -1,22 +1,25 @@
 def study_schedule(permanence_period, target_time):
-    # [(1, 3), (2, 5), (1, 4)]
-    hours_dict = {}
+    if target_time is None:
+        return None
 
-    if(target_time == None or not isinstance(permanence_period, list)): return None
+    count = 0
     for student in permanence_period:
-        if(not isinstance(student, tuple)): return None
-        if(type(student[0]) != int or type(student[1]) != int): return None
-        hour = student[0]
-        while hour <= student[1]:
-            if(hour not in hours_dict):
-                hours_dict[hour] = 1
-                hour += 1
-            else:
-                hours_dict[hour] += 1
-                hour += 1
+        is_true = (
+            type(student) is tuple
+            and type(student[0]) is int
+            and type(student[1]) is int
+        )
+        # print('>>>>>>>>', type(student) is tuple)
+        if not is_true:
+            return None
 
+        if student[0] <= target_time <= student[1]:
+            count += 1
 
-
-        # for hour in range(student[0], student[1] + 1):
-    return hours_dict.get(target_time, None)
+    return count
     # raise NotImplementedError
+
+
+1, 3
+4, 5
+1, 5
