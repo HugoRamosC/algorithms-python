@@ -9,7 +9,6 @@ def study_schedule(permanence_period, target_time):
             and type(student[0]) is int
             and type(student[1]) is int
         )
-        # print('>>>>>>>>', type(student) is tuple)
         if not is_true:
             return None
 
@@ -17,9 +16,3 @@ def study_schedule(permanence_period, target_time):
             count += 1
 
     return count
-    # raise NotImplementedError
-
-
-1, 3
-4, 5
-1, 5
